@@ -30,7 +30,7 @@ class CellPhone {
          // We are at this point**************
         //if(this.callingCard.getRemainingMinutes() === 1) {        
         this.getTicks();    
-        console.log(this.callArr);    
+        //console.log(this.callArr);    
         return this.talking = false;      
 
      }
@@ -42,8 +42,9 @@ class CellPhone {
          } else if(this.callingCard.getRemainingMinutes() === 1){
             this.callingCard.useMinutes(1);
             this.addMinute += 1;
-            this.getTicks();
-            this.getHistory();
+            return this.endCall();
+            // getTicks();
+            // return this.getHistory();
          }
          else {
              this.endCall();
@@ -79,8 +80,10 @@ class CellPhone {
      }
 
      getHistory() {
-             
-        return this.callArr.join(' '); //returns "555-1111 (2 minutes), 555-3333 (cut of at 3 minutes)"
+        
+        var finalStr = this.callArr.join(' ');
+
+        return finalStr.substring(0, finalStr.length-1); //returns "555-1111 (2 minutes), 555-3333 (cut of at 3 minutes)"
          //var finalArr = [];
      }
  }

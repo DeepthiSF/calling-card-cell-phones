@@ -78,7 +78,7 @@ console.log(phone.endCall());
  console.log(phone.tick());       // 4 minutes elapsed
  //console.log(card);
 console.log(phone.tick());       // this is the end of the 5th minute, so the call is ended
-//console.log(phone.tick());
+console.log(phone.tick());
 
 console.log(phone.getHistory()); // => returns "555-1111 (2 minutes), 555-3333 (cut of at 3 minutes)"
 
