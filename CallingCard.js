@@ -14,6 +14,7 @@ class CallingCard {
 
     getRemainingMinutes() {
         //this.remainingMinutes = this.amountLeft/this.centsPerMinute;
+        
         if(this.remainingMinutes <= 0) {
             return 0;
         } else {

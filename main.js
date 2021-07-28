@@ -30,26 +30,58 @@ import {CellPhone} from "./CellPhone.js";
 // console.log(card2.addDollars(3));         // 300 cents / 17 = 17.647... = 17 minutes added
 // console.log(card2.getRemainingMinutes()); // => returns 17
 
-let card = new CallingCard(10);
-console.log(card);
-console.log(card.addDollars(1));
+// let card = new CallingCard(10);
+// console.log(card);
+// console.log(card.addDollars(1));
 
-let phone = new CellPhone(card);
-//console.log(phone);
-//console.log(phone.isTalking());  // => returns false
+// let phone = new CellPhone(card);
+// //console.log(phone);
+// //console.log(phone.isTalking());  // => returns false
 
- console.log(phone.call("555-1212"));
- //console.log(phone.call("666-1212"));
-
- //console.log(phone.isTalking());  // => returns true
-
-console.log(phone.tick());       // simulate a minute going by
-console.log(phone.tick());       // simulate another minute going by
-console.log(phone.getTicks());
+//  console.log(phone.call("555-1212"));
+// //console.log(phone.isTalking());  // => returns true
+// console.log(phone.tick());       // simulate a minute going by
+// //console.log(phone.tick());       // simulate another minute going by
+// console.log(phone.endCall());
+// console.log(phone.getHistory()); // => returns "555-1212 (2 minutes)"
 
 // console.log(phone.call("666-1212"));
-//console.log(phone.tick());  
+// console.log(phone.tick());
+// console.log(phone.tick());
+// console.log(phone.endCall());
+// console.log(phone.getHistory()); // => returns "555-1212 (2 minutes)"
 
-//console.log(phone.endCall());
-//console.log(phone.isTalking());  // => returns false (because the call is over)
-console.log(phone.getHistory()); // => returns "555-1212 (2 minutes)"
+// console.log(phone.call("777-1212"));
+// console.log(phone.tick());
+// console.log(phone.tick());
+// console.log(phone.tick());
+// console.log(phone.endCall());
+// console.log(phone.getHistory()); // => returns "555-1212 (2 minutes)"
+
+// console.log(card.getRemainingMinutes()) // => return 8, because the call lasted 2 minutes;
+
+
+// //console.log(phone.endCall());
+// //console.log(phone.isTalking());  // => returns false (because the call is over)
+
+let card = new CallingCard(20);
+card.addDollars(1); // add 100 cents @ 20 cents/minute = 5 minutes added
+
+let phone = new CellPhone(card);
+phone.call("555-1111");
+console.log(phone.tick());       // 1 minute elapsed
+console.log(phone.tick());       // 2 minutes elapsed
+console.log(phone.endCall());
+
+ phone.call("555-3333");
+ console.log(phone.tick());      // 3 minutes elapsed
+ console.log(phone.tick());       // 4 minutes elapsed
+ //console.log(card);
+console.log(phone.tick());       // this is the end of the 5th minute, so the call is ended
+console.log(phone.tick());
+
+console.log(phone.getHistory()); // => returns "555-1111 (2 minutes), 555-3333 (cut of at 3 minutes)"
+
+console.log(card.getRemainingMinutes()) // => returns 0, because all 5 minutes have been used up
+
+
