@@ -36,21 +36,31 @@ class CellPhone {
      }
 
      tick() {  
-         if(this.callingCard.getRemainingMinutes() !== 0) {
-            this.callingCard.useMinutes(1);
-            return this.addMinute += 1;
-         } else if(this.callingCard.getRemainingMinutes() === 1){
-            this.callingCard.useMinutes(1);
+        
+        if(this.callingCard.getRemainingMinutes() === 1) {
+             
             this.addMinute += 1;
-            return this.endCall();
-            // getTicks();
-            // return this.getHistory();
-         }
+            this.getTicks();
+            //this.callingCard.useMinutes(1); 
+
+           // this.talking= false;          
+            
+            //return this.endCall();
+          } else if(this.callingCard.getRemainingMinutes() !== 0) {
+             this.callingCard.useMinutes(1);
+             return this.addMinute += 1;
+          }
+            
+         //else if(this.callingCard.getRemainingMinutes() === 1){
+         //     this.callingCard.useMinutes(1);
+         //     this.addMinute += 1;
+         //     return this.endCall();
+         //     // getTicks();
+         //     // return this.getHistory();
+         //  }
          else {
-             this.endCall();
-         }
-         
-         //return this.callArr.push(this.addMinute);
+              return 0;
+          }
      }
 
      getTicks(){
@@ -61,6 +71,7 @@ class CellPhone {
         if(this.callingCard.getRemainingMinutes() === 1) {
             this.callArr.push('cut of at');
             this.callArr.push(this.addMinute);
+            this.callingCard.useMinutes(1); 
             if(this.addMinute > 1) {
                 this.callArr.push('minutes),');
             } else {
