@@ -90,6 +90,7 @@ import CellPhone from "./CellPhone.js"
 
 // console.log(card.getRemainingMinutes()); // => returns 0, because all 5 minutes have been used up
 
+
 //***************************************TEST 6***********************************************************************************************/
 
 let card = new CallingCard(20);
@@ -107,8 +108,11 @@ phone.endCall();
          
 phone.call("666-3333");
 console.log(phone.tick());     // 4 minutes elapsed
-console.log(phone.tick());     // this is the end of the 5th minute, so the call is ended
-//phone.endCall();
+//console.log(phone.tick());     // this is the end of the 5th minute, so the call is ended
+phone.endCall();
+
+phone.call("666-7777");
+console.log(phone.tick()); 
 console.log(phone.getHistory()); // => returns "555-1111 ( 2 minutes), 555-3333 ( 1 minute), 666-3333 ( cut of at 2 minutes)"
 
 console.log(card.getRemainingMinutes()); // => returns 0, because all 5 minutes have been used up

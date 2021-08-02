@@ -7,7 +7,7 @@ class CellPhone {
         this.addMinute = 0;
        // this.phoneNumber = '';
         this.callArr = [];
-        this.finalArr = [];
+        //this.finalArr = [];
         
      }
 
@@ -39,6 +39,7 @@ class CellPhone {
         if(this.callingCard.getRemainingMinutes() === 1) {
              
             this.addMinute += 1;
+            this.callingCard.useMinutes(1);
             this.getTicks();
             //this.callingCard.useMinutes(1); 
 
@@ -58,19 +59,20 @@ class CellPhone {
          //     // return this.getHistory();
          //  }
          else {
-              return 0;
+              //return 0;
+              this.endCall();
           }
      }
 
      getTicks(){
         
-        this.callArr.push('(');
+        //this.callArr.push('(');
         //total = 10 mints
         //"555-1111 (2 minutes), 555-3333 (2 minutes), 666-1111 (cut of at 6 minutes)"
-        if(this.callingCard.getRemainingMinutes() === 1) {
-            this.callArr.push('cut of at');
+        if(this.callingCard.getRemainingMinutes() === 0) {
+            this.callArr.push('(cut off at');
             this.callArr.push(this.addMinute);
-            this.callingCard.useMinutes(1); 
+            //this.callingCard.useMinutes(1); 
             if(this.addMinute > 1) {
                 this.callArr.push('minutes),');
             } else {
@@ -78,7 +80,7 @@ class CellPhone {
             }
 
         } else {
-            this.callArr.push(this.addMinute);
+            this.callArr.push('(' + this.addMinute);
         
               if(this.addMinute > 1){
                return this.callArr.push('minutes),');
@@ -93,7 +95,7 @@ class CellPhone {
         
         var finalStr = this.callArr.join(' ');
 
-        return finalStr.substring(0, finalStr.length-1); //returns "555-1111 (2 minutes), 555-3333 (cut of at 3 minutes)"
+        return finalStr.substring(0, finalStr.length-1); //returns "555-1111 (2 minutes), 555-3333 (cut off at 3 minutes)"
          //var finalArr = [];
      }
  }
