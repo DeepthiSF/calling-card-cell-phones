@@ -1,5 +1,5 @@
-import {CallingCard} from "./CallingCard.js";
-import {CellPhone} from "./CellPhone.js";
+import CallingCard from "./CallingCard.js"
+import CellPhone from "./CellPhone.js"
 
 //*****************************************TEST 1****************************************************************************************/
 // let card1 = new CallingCard(10); // card1 costs 10 cents / minute to use
@@ -92,25 +92,25 @@ import {CellPhone} from "./CellPhone.js";
 
 //***************************************TEST 6***********************************************************************************************/
 
-// let card = new CallingCard(20);
-// card.addDollars(1); // add 100 cents @ 20 cents/minute = 5 minutes added
+let card = new CallingCard(20);
+card.addDollars(1); // add 100 cents @ 20 cents/minute = 5 minutes added
 
-// let phone = new CellPhone(card);
-// phone.call("555-1111");
-// console.log(phone.tick());       // 1 minute elapsed
-// console.log(phone.tick());        // 2 minutes elapsed
-// phone.endCall();
+let phone = new CellPhone(card);
+phone.call("555-1111");
+console.log(phone.tick());       // 1 minute elapsed
+console.log(phone.tick());        // 2 minutes elapsed
+phone.endCall();
 
-// phone.call("555-3333");
-// console.log(phone.tick());       // 3 minutes elapsed
-// phone.endCall();        
+phone.call("555-3333");
+console.log(phone.tick());       // 3 minutes elapsed
+phone.endCall();        
          
-// phone.call("666-3333");
-// console.log(phone.tick());     // 4 minutes elapsed
-// console.log(phone.tick());     // this is the end of the 5th minute, so the call is ended
-// //phone.endCall();
-// console.log(phone.getHistory()); // => returns "555-1111 ( 2 minutes), 555-3333 ( 1 minute), 666-3333 ( cut of at 2 minutes)"
+phone.call("666-3333");
+console.log(phone.tick());     // 4 minutes elapsed
+console.log(phone.tick());     // this is the end of the 5th minute, so the call is ended
+//phone.endCall();
+console.log(phone.getHistory()); // => returns "555-1111 ( 2 minutes), 555-3333 ( 1 minute), 666-3333 ( cut of at 2 minutes)"
 
-// console.log(card.getRemainingMinutes()); // => returns 0, because all 5 minutes have been used up
+console.log(card.getRemainingMinutes()); // => returns 0, because all 5 minutes have been used up
 //*****************************************************************************************************************************************/
 

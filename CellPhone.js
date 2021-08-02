@@ -1,4 +1,4 @@
-import {CallingCard} from "./CallingCard.js";
+import CallingCard from "./CallingCard.js";
 
 class CellPhone {
      constructor(card) {
@@ -27,8 +27,7 @@ class CellPhone {
      }
 
      endCall() {
-         // We are at this point**************
-        //if(this.callingCard.getRemainingMinutes() === 1) {        
+         //if(this.callingCard.getRemainingMinutes() === 1) {        
         this.getTicks();    
         //console.log(this.callArr);    
         return this.talking = false;      
@@ -99,5 +98,5 @@ class CellPhone {
      }
  }
 
- export {CellPhone}
+ export default CellPhone;
 

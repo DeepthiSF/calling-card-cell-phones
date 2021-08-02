@@ -28,4 +28,4 @@ class CallingCard {
     }
 }
 
-export {CallingCard}
+export default CallingCard;
